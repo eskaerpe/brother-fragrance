@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrotherFragrance - Vietnam Scented Perfumes</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Fixed Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #151F28;
+      border-bottom: 1px solid #ddd;
+      position: fixed;
+      width: 100%;
+      height: 14%;
+      top: 0;
+      z-index: 900;
+      box-sizing: border-box;
+    }
+    
+    .logo button {
+     border: none;
+     background-color: transparent;
+     outline: none;
+     cursor: pointer; /* Adds hand cursor on hover */
+}
+    .logo {
+      flex: 1;
+    }
+
+    .header-title {
+    flex-grow: 1;  
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    color: white;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 2px;
+    }
+    .nav-right{
+      flex:1;
+    }
+
+    .nav-right ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-start; /* Aligns items to the right */
+}
+
+.nav-right ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* Remove the previous nav ul style that had margin-left */
+nav ul {
+    margin-left: 0;
+}
+    header .logo img {
+      height: 25px;
+      top: 15%;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+      
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    .cart a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    /* Hero Section with Parallax Effect */
+    .hero {
+      position: relative;
+      text-align: center;
+      height: 100vh; /* Full viewport height */
+      overflow: hidden;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transform: translateY(0);
+      transition: transform 0.3s ease-out;
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 75%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-align: bottom;
+    }
+
+    .hero-text h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text p {
+      font-size: 1.0rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-text .btn {
+      background-color: transparent; /* Porsche Red */
+  color: white;
+  border: 2px solid white;
+  padding: 15px 40px;
+  text-decoration: none;
+  border-radius: 0; /* Sharp corners */
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  font-size: 1.1rem;
+}
+.hero-text .btn:hover {
+  background-color: grey;
+  border-color: white;
+  transform: translateY(-2px);
+}
+    /* Featured Products Section */
+    .featured-products {
+      padding: 100px 20px 40px; /* Added padding to account for fixed header */
+      text-align: center;
+      background-color: white;
+    }
+
+    .featured-products h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .product-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .product-card {
+      background-color: #f8f8f8;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      width: 200px;
+      text-align: center;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .product-card h3 {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+
+    .product-card p {
+      font-size: 1rem;
+      color: #555;
+    }
+    .product-card p1 {
+        font-size: 1rem;
+        color: black;
+        font: italic;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .product-card button {
+      background-color: transparent;
+  color: rgb(56, 50, 50);
+  border: 2px solid gray;
+  padding: 12px 30px;
+  border-radius: 0; /* Sharp corners */
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+    }
+    .product-card button:hover {
+  background-color: #333333;
+  border-color: #333333;
+  transform: translateY(-2px);
+}
+    /* Footer Section */
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    footer .footer-logo img {
+      height: 40px;
+    }
+
+    footer .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    footer .footer-links ul li {
+      margin: 10px 0;
+    }
+
+    footer .footer-links ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    footer .social-media a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="logo">
+      <a href="index.html" target="_blank">
+      <button style="border: none; background-color: transparent; outline: none;">
+        <img src="./Black White Minimalist Initials Monogram Jewelry Logo (Posters (Landscape)).png" 
+             alt="BrotherFragrance Logo" 
+             style="width: 130px; height: auto;">
+      </button>
+      </a>
+    </div>
+    <style>
+      
+      nav ul {
+        margin-left:160px; /* Move the list 20px to the left */
+      }
+      </style>
+    <div class="header-title">
+      B R O T H E R F R A G R A N C E
+    </div>
+  </div>
+    <style>
+    nav ul {
+        margin-right:0px; /* Move the list 20px to the left */
+      }
+    </style>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Contact</a></li>
+      
+    </ul>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <img src="./BROTHER FRAGRANCE1.png" alt="BrotherFragrance Banner" id="parallax-banner">
+    <div class="hero-text">
+      <h1>BrotherFragrance | Hương thơm Brother</h1>
+      <p>Discover our unique collection of Vietnam-inspired fragrances.</p>
+      <a href="#" class="btn">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- Featured Products Section -->
+  <section class="featured-products">
+    <h2>Featured Products</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="./DALL·E 2025-02-06 21.20.37 - A realistic illustration of a square perfume bottle. The bottle is made of clear glass with a sleek, minimalist design. The cap is a metallic silver c.webp" alt="Men">
+        <h3>Dawn Of The Vietnam</h3>
+        <p>Rp 200.000</p>
+        <p1>Dawn Of The Vietnam is our prestigious parfume smell sweet yet is delightful to use at special occation</p1>
+        </div>
+      </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+      </div>
+      <div class="footer-links">
+      </div>
+      <div class="social-media">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">X</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
+    <p>&copy; 2025 BrotherFragrance. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript for Parallax Effect -->
+  <script>
+    window.addEventListener('scroll', function() {
+      const banner = document.getElementById('parallax-banner');
+      const scrollPosition = window.scrollY;
+      banner.style.transform = `translateY(${scrollPosition * 0.5}px)`; // Adjust the multiplier for speed
+    });
+  </script>
+</body>
+</html>
